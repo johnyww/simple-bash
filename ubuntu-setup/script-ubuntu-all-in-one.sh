@@ -7,12 +7,13 @@ sleep 1
 
 # make directory
 echo "Creating directory..."
-mkdir /home/pi/docker/docker-network/imanmacvlan
-mkdir /home/pi/portainer
-mkdir /home/pi/ddclient
-mkdir /home/pi/adguard
-mkdir /home/pi/jellyfin
-mkdir /home/pi/wireguard
+name = whoami
+mkdir /home/$whoami/docker/docker-network/imanmacvlan
+mkdir /home/$whoami/portainer
+mkdir /home/$whoami/ddclient
+mkdir /home/$whoami/adguard
+mkdir /home/$whoami/jellyfin
+mkdir /home/$whoami/wireguard
 echo "Directory created"
 sleep 1
 
@@ -44,9 +45,9 @@ sleep 3
 # start_script2
 
 # get subnet & gateway & network interface
-$subnet = ip address | grep scope | grep global | grep dynamic | awk '{print$2}'
-$gateway = ip route | grep default | awk '{print$3}'
-$parent = ip address | grep LOWER_UP | grep 2 | awk '{print$2}' | sed 's/://g'
+subnet = (ip address | grep scope | grep global | grep dynamic | awk '{print$2; exit}')
+gateway = (ip route | grep default | awk '{print$3}')
+parent = (ip address | grep LOWER_UP | grep 2 | awk '{print$2}' | sed 's/://g')
 
 # input docker macvlan name and ip address
 echo "Enter docker macvlan name : "
@@ -110,7 +111,7 @@ use=if, if=eth0
 server=freedns.afraid.org
 protocol=freedns
 login=johnwick78
-password=BdJoWuEQIhjHUY
+password=HO3x6zwy
 johnvpn.ignorelist.com" >> /etc/ddclient.conf
 echo "Write config file completed"
 sleep 1
@@ -193,8 +194,8 @@ sleep 1
 
 # end_script6
 
-echo "You can access Portainer via http://"  + $ipaddportainer + ":9000 or" + "https://" + $ipaddportainer + ":9000"
-echo "You can access Adguard via http://"  + $ipaddadguard + ":3000 or" + "https://" + $ipaddadguard + ":3000"
-echo "You can access Jellyfin via http://"  + $ipaddjellyfin + ":8096 or" + "https://" + $ipaddjellyfin + ":8096"
+echo "You can access Portainer via http://"  + $ipaddportainer + ":9000 or " + "https://" + $ipaddportainer + ":9000"
+echo "You can access Adguard via http://"  + $ipaddadguard + ":3000 or " + "https://" + $ipaddadguard + ":3000"
+echo "You can access Jellyfin via http://"  + $ipaddjellyfin + ":8096 or " + "https://" + $ipaddjellyfin + ":8096"
 
 # hihi - imananakmama
