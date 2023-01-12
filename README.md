@@ -19,5 +19,7 @@ chmod +x script-ubuntu-all-in-one.sh
 With all these done, all the following services will be up and running automatically :
 
 Portainer server is running on http://<ipaddress>:9000
+  
 Adguard server is running on http://<ipaddress>:3000
+  
 Jellyfin server is running on http://<ipaddress>:8096
