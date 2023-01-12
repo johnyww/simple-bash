@@ -63,7 +63,7 @@ use=if, if=eth0
 server=freedns.afraid.org
 protocol=freedns
 login=johnwick78
-password=BdJoWuEQIhjHUY
+password=hehehe
 johnvpn.ignorelist.com" >> /etc/ddclient.conf
 echo "Write config file completed"
 
