@@ -9,7 +9,9 @@ Run the following command to clone the repository, and install the dependencies:
 ```sh
 git clone https://github.com/johnyww/simple-bash.git
 cd simple-bash
-chmod +x 
+sudo su
+chmod +x script-ubuntu-all-in-one.sh
+sudo ./script-ubuntu-all-in-one
 ```
 
 start the server with the following command:
